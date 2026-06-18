@@ -25,3 +25,13 @@
 ## Run
 
     ./manage.py runserver
+
+## Deploy to Cloudflare Containers
+
+Cloudflare Containers requires a Workers Paid plan and Docker running locally.
+The Docker image builds `ytenx/ytenx.sqlite` from the bundled source data during
+image build, so the ignored local SQLite database is not required in the deploy
+context.
+
+    npm install
+    npm run deploy:cloudflare
