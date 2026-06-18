@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "deploy:cloudflare": "wrangler deploy",
+    "dev:cloudflare": "wrangler dev --remote"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "latest"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}
