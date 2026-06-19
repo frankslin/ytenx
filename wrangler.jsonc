@@ -3,6 +3,8 @@
   "name": "ytenx",
   "main": "src/cloudflare-worker.js",
   "compatibility_date": "2026-06-18",
+  "workers_dev": false,
+  "preview_urls": false,
   /**
    * Static Assets
    * https://developers.cloudflare.com/workers/static-assets/binding/
