@@ -3,6 +3,15 @@
   "name": "ytenx",
   "main": "src/cloudflare-worker.js",
   "compatibility_date": "2026-06-18",
+  /**
+   * Static Assets
+   * https://developers.cloudflare.com/workers/static-assets/binding/
+   */
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
   "observability": {
     "logs": {
       "enabled": true,
