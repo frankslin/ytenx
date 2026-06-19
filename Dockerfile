@@ -12,7 +12,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 RUN python scripts/build_sqlite.py --target ytenx/ytenx.sqlite --reset \
-    && python manage.py check
+    && python manage.py check \
+    && gunicorn --version \
+    && chmod +x scripts/container_start.sh
 
 EXPOSE 8000
-CMD ["sh", "-c", "gunicorn ytenx.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers ${WEB_CONCURRENCY:-2} --access-logfile - --error-logfile -"]
+CMD ["scripts/container_start.sh"]
