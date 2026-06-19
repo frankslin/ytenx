@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "deploy:cloudflare": "wrangler deploy",
+    "deploy:cloudflare:worker": "wrangler deploy --containers-rollout=none",
     "dev:cloudflare": "wrangler dev --remote"
   },
   "dependencies": {
