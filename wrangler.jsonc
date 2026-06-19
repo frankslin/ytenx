@@ -3,6 +3,12 @@
   "name": "ytenx",
   "main": "src/cloudflare-worker.js",
   "compatibility_date": "2026-06-18",
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  },
   "containers": [
     {
       "class_name": "YtenxContainer",
