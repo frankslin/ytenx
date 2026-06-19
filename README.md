@@ -29,9 +29,15 @@
 ## Deploy to Cloudflare Containers
 
 Cloudflare Containers requires a Workers Paid plan and Docker running locally.
-The Docker image builds `ytenx/ytenx.sqlite` from the bundled source data during
-image build, so the ignored local SQLite database is not required in the deploy
-context.
+Build the SQLite database before deploying. The Docker image expects
+`ytenx/ytenx.sqlite` to already exist and copies it into the runtime image; the
+source data under `ytenx/sync`, `testdata`, and `node_modules` are excluded from
+the Docker context.
+
+Static files are served by Workers Static Assets. The deploy assets root is
+`public/`, with `public/static` pointing at `ytenx/static`, so existing
+`/static/...` URLs continue to work.
 
     npm install
+    make sync
     npm run deploy:cloudflare

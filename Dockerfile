@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.12-slim
+FROM --platform=linux/amd64 python:3.12-alpine
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-RUN python scripts/build_sqlite.py --target ytenx/ytenx.sqlite --reset \
+RUN test -s ytenx/ytenx.sqlite \
     && python manage.py check \
     && gunicorn --version \
     && chmod +x scripts/container_start.sh
