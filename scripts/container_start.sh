@@ -2,7 +2,7 @@
 set -eu
 
 PORT="${PORT:-8000}"
-WEB_CONCURRENCY="${WEB_CONCURRENCY:-2}"
+WEB_CONCURRENCY="${WEB_CONCURRENCY:-1}"
 DB_PATH="${YTENX_DB_PATH:-/app/ytenx/ytenx.sqlite}"
 
 echo "Starting ytenx container"
