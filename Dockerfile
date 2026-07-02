@@ -3,7 +3,8 @@ FROM --platform=linux/amd64 python:3.12-alpine
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PORT=8000 \
-    YTENX_DB_PATH=/app/ytenx/ytenx.sqlite
+    YTENX_DB_PATH=/app/ytenx/ytenx.sqlite \
+    YTENX_ENV=production
 
 WORKDIR /app
 
