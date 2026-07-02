@@ -12,8 +12,11 @@ def byoh_lyuk(request, name):
     name = 'miuk_lyuk'
   
   path = 'byohlyuk/' + name + '.html'
+  # Pages that reference files only available via Worker Static Assets, not the CDN.
+  local_static = {'IPA_Charts'}
+  context = {'STATIC_URL': '/static/'} if name in local_static else {}
   try:
-    return render(request, path)
+    return render(request, path, context)
   except:
     raise Http404()
 
