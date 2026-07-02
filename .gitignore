@@ -1,5 +1,6 @@
 *.pyc
 *.sqlite
+ytenx/commit_sha.txt
 !testdata/golden/ytenx.sqlite
 build/
 ENV
