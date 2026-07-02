@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "predeploy:cloudflare": "git rev-parse --short HEAD > ytenx/commit_sha.txt",
     "deploy:cloudflare": "wrangler deploy",
     "deploy:cloudflare:worker": "wrangler deploy --containers-rollout=none",
     "dev:cloudflare": "wrangler dev --remote"
