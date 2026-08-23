@@ -26,18 +26,17 @@
 
     ./manage.py runserver
 
-## Deploy to Cloudflare Containers
+## Deploy with Docker
 
-Cloudflare Containers requires a Workers Paid plan and Docker running locally.
-Build the SQLite database before deploying. The Docker image expects
+Build the SQLite database before building the image. The Docker image expects
 `ytenx/ytenx.sqlite` to already exist and copies it into the runtime image; the
-source data under `ytenx/sync`, `testdata`, and `node_modules` are excluded from
-the Docker context.
+source data under `ytenx/sync` and `testdata` are excluded from the Docker
+context.
 
-Static files are served by Workers Static Assets. The deploy assets root is
-`public/`, with `public/static` pointing at `ytenx/static`, so existing
-`/static/...` URLs continue to work.
+`make image` writes the current commit SHA to `ytenx/commit_sha.txt` (shown in
+the page footer) and builds the image; `start.sh` then replaces the running
+container, listening on `127.0.0.1:7001`.
 
-    npm install
     make sync
-    npm run deploy:cloudflare
+    make image
+    ./start.sh

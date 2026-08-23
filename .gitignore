@@ -5,7 +5,6 @@ ytenx/commit_sha.txt
 build/
 ENV
 .venv/
-node_modules/
 res
 ytenx/static/files
 ytenx/static/img
