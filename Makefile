@@ -22,3 +22,7 @@ shell:
 
 import: backup
 	${PYTHON} scripts/build_sqlite.py --target ytenx/ytenx.sqlite --reset
+
+image:
+	git rev-parse --short HEAD > ytenx/commit_sha.txt
+	docker build -t ytenx .
